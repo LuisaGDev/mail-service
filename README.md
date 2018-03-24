@@ -1,7 +1,7 @@
 # mail-service
 ## Requirements
 
-node v 6+
+node v 6+ &nbsp;
 nodemon `npm install -g nodemon`
 
 ## Install
