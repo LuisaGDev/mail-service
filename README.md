@@ -3,10 +3,9 @@
 ## Api doc
 `localhost:1339/apidoc`
 
-## Requirements
+## Requirement
 
-node v 6+ <br>
-nodemon `npm install -g nodemon`
+node v 6+
 
 ## Install
 

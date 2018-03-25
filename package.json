@@ -4,7 +4,7 @@
   "description": "Mail service to lagun",
   "main": "server.js",
   "scripts": {
-    "start": "gulp apidoc && nodemon server.js"
+    "start": "gulp apidoc && node server.js"
   },
   "author": "Lagun",
   "license": "ISC",
