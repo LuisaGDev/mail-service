@@ -32,6 +32,7 @@ module.exports = function initApp() {
   require('../modules/mail/routes/routes')(app);
 
   //-----------------------------start server---------------------------------\\
+  config.web.port = process.env.PORT || config.web.port;
   var server = app.listen(config.web.port, function() {
     console.log('Server is running on port: ::' , config.web.port);
     return server;
