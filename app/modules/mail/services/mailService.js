@@ -1,13 +1,13 @@
 var config        = require('../../../../config/config');
-var nodemailer 		= require('nodemailer');
-var q			 				= require('q');
-var nunjucks			= require('nunjucks')
+var nodemailer 	  = require('nodemailer');
+var q			  = require('q');
+var nunjucks	  = require('nunjucks')
 
-var exports                     = module.exports;
+var exports       = module.exports;
 
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: config.mailService,
   auth: config.mailAuth
 })
 

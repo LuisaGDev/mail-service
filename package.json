@@ -4,7 +4,7 @@
   "description": "Mail service to lagun",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "gulp apidoc && nodemon server.js"
   },
   "author": "Lagun",
   "license": "ISC",
@@ -15,6 +15,8 @@
     "express-custom-response": "^0.1.1",
     "express-limiter": "^1.6.1",
     "express-session": "^1.15.6",
+    "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.7",
     "helmet": "^3.12.0",
     "lodash": "^4.17.5",
     "mocha": "^5.0.4",

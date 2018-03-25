@@ -7,7 +7,8 @@ var defaultConfig = {
   'mailAuth': {
     'user': 'noreply.lagunapp@gmail.com',
     'pass': 'Trudat55!' 
-  }
+  },
+  'mailService': 'gmail'
 }
 
 

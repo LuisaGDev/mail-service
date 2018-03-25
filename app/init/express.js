@@ -18,6 +18,7 @@ module.exports = function initApp() {
     .use(bodyParser.urlencoded({    // to support URL-encoded bodies
       extended: true
     }))
+    .use(express.static('public'))
     
 
   app.disable('x-powered-by');
