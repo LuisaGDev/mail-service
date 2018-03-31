@@ -24,7 +24,7 @@ module.exports = (app)=> {
  *  {
  *    "data": {
  *      "code": 200
- *      "userMessage": "Friendly Error String",
+ *      "userMessage": "Friendly Success String",
  *      "serverInfo": "",
  *    }
  *  }
