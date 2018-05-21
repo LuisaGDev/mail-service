@@ -7,7 +7,7 @@ var config       	 	  = require('../../../../config/config');
 module.exports = (app)=> {
 
 /**
- * @api {post} /api/v1/mail Send a mail
+ * @api {post} /api/v1/mails Send a mail
  * @apiName Mail - Send
  * @apiGroup Mail
  * @apiDescription Send a mail to user

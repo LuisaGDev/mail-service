@@ -1,40 +1,58 @@
+//-------------------------------load modules---------------------------------\\
 var express      = require('express');
+var mime         = require('mime');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
-var session      = require('express-session');  
+var session      = require('express-session');
+var i18n         = require('i18n');
+var cors         = require('cors');
+var Cobuild      = require('cobuild2')
+var config       = Cobuild.config
+var cluster      = require('cluster');
+log              = require('debug')('cobuild-express-stack');
 var helmet       = require('helmet');
-var config       = require('../../config/config')
+var multipart = require('connect-multiparty');
+var express_limiter = require('express-limiter');
+
 
 
 module.exports = function initApp() {
 
   //--------------------setup the express application-------------------------\\
   var app = express();
-  
-  app        
+
+
+  i18n.configure({
+    locales: ['es'],
+    defaultLocale: 'es',
+    directory: __dirname + '/locales'
+  });
+
+
+  app
+    .use(logger('dev'))            
     .use(helmet())
-    .use(cookieParser())            //use cookie - needed for auth
-    .use(bodyParser.json())         // to support JSON-encoded bodies
-    .use(bodyParser.urlencoded({    // to support URL-encoded bodies
-      extended: true
+    .use(cookieParser())            
+    .use(bodyParser.json())         
+    .use(bodyParser.urlencoded({   
+      extended: false
     }))
-    .use(express.static('public'))
-    
+    .use(express.static(Cobuild.Utils.Files.resolvePath('public')))
+    .use(i18n.init)
 
-  app.disable('x-powered-by');
-
-  
-  //--------------------------initialize custom responses---------------------\\
   require('express-custom-response')(__dirname+ '/responses');
 
-  //-------------------------- load moodules ---------------------------------\\
-
-  require('../modules/mail/routes/routes')(app);
+  //--------------------------------Load modules-------------------------------\\
+  require(Cobuild.paths.app + '/init/modulesLoader')(app);
 
   //-----------------------------start server---------------------------------\\
-  config.web.port = process.env.PORT || config.web.port;
+  config.web.port = config.web.port; 
+
   var server = app.listen(config.web.port, function() {
-    console.log('Server is running on port: ::' , config.web.port);
+    var port = server.address().port;
+    console.log('Server is running on port: ' , port, "  and worker: ",(cluster.worker ? cluster.worker.id : 'n/a'));
     return server;
   });
+  
 };

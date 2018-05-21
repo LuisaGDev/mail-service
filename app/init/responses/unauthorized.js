@@ -1,12 +1,12 @@
 /** 
  *
- * This will be available in controllers as res.badRquest(data);
+ * This will be available in controllers as res.unauthorized(data);
  * api/responses/ok.js
- * 400 (BadRequest) Response
+ * 401 (unauthorized) Response
  *
  * Usage:
- * return res.badRequest();
- * return res.badRequest(data);
+ * return res.unauthorized();
+ * return res.unauthorized(data);
  *
  * @param  {Object} message
  */
@@ -22,7 +22,7 @@ module.exports = function(responseData) {
   var res = this;
 
   var responseObj = {
-    code: 400,
+    code: 401,
     userMessage: responseData.userMessage || '',
     serverInfo: responseData.serverInfo || {},
     data: responseData.data ? responseData.data : responseData

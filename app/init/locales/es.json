@@ -1,0 +1,8 @@
+{
+	"login_unknown_email": "La dirección de correo no está registrada.  Intentalo nuevamente",
+	"login_wrong_password": "La contraseña está errada",
+	"login_success": "Bienvenido",
+	"email_already_exists": "El correo ya ha sido registrado",
+	"server_error": "Error de Servidor",
+	"success_user_add": "El usuario ha sido agregado"
+}

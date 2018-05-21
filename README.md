@@ -1,4 +1,4 @@
-# mail-service
+# Mail service
 
 ## Api doc
 `localhost:1339/apidoc`

@@ -18,8 +18,8 @@ exports.sendMail = (data, whichMail)=>{
 	var mailOptions = {
 	  from: config.mailAuth.user,
 		to: data.to,
-		subject: this.getSubject(whichMail),
-		html: this.getTemplate(whichMail)
+		subject: getSubject(whichMail),
+		html: getTemplate(whichMail)
 	}
 
 	
@@ -34,7 +34,7 @@ exports.sendMail = (data, whichMail)=>{
 
 }
 
-exports.getSubject = (whichMail)=>{
+getSubject = (whichMail)=>{
 
 	var subjects = {
 		'reminder': 'This a reminder'
@@ -43,7 +43,7 @@ exports.getSubject = (whichMail)=>{
 	return subjects[whichMail];
 }
 
-exports.getTemplate = (whichMail)=>{
+getTemplate = (whichMail)=>{
 	var template;
 	switch(whichMail){
 		case 'reminder':
